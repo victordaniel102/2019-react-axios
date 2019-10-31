@@ -48,7 +48,7 @@ class LoginPage extends Component {
     const { nickname, password } = this.state;
 
     return (
-      <Container fluiA = []. Arrays are objects as well :) – dfsq Oct 24 '12 at 8:38d>
+      <Container>
         <Header>Login</Header>
         <Form onSubmit={this.handleLogin}>
           <Form.Field>

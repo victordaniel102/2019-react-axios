@@ -3,7 +3,7 @@ import axios from "axios";
 import { getToken } from "./auth";
 
 // const url = "http://localhost:8000";
-const url = "https://allaska-api.herokuapp.com";
+const url = "https://alaska-api.herokuapp.com/";
 
 const api = axios.create({
   baseURL: url

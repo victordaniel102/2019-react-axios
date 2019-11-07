@@ -47,6 +47,21 @@ class TaskPage extends React.Component {
       });
   };
 
+  handleDelete = task => {
+    const { data } = this.state;
+    api
+      .delete(`tasks/${task.oid}`)
+      .then(response => response.data)
+      .then(json => {
+        console.log("====================================");
+        console.log(task);
+        console.log("====================================");
+        task.done = true;
+        data.set(task.oid, task);
+        this.setState({ data: data });
+      });
+  };
+
   renderHeader = task => {
     return (
       <Card.Header>
@@ -55,9 +70,10 @@ class TaskPage extends React.Component {
           disabled={task.delete || task.done}
           circular
           icon="trash alternate outline"
+          onClick={this.handleDelete.bind(this, task)}
         />
         <Button
-          disabled={task.done}
+          disabled={task.delete || task.done}
           circular
           icon="thumbs up outline"
           onClick={this.handleDone.bind(this, task)}
